@@ -41,6 +41,9 @@ duration = config['duration']
 #Make epohs of equal length
 epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=False)
 
+# == SAVE FILE ==
+epochs.save(os.path.join('out_dir','meg-epo.fif'))
+
 
 # == FIGURES ==
 plt.figure(1)
@@ -60,8 +63,7 @@ epochs.plot_psd()
 plt.savefig(os.path.join('out_figs','epochs_psd.png'))
 
 
-# == SAVE FILE ==
-epochs.save(os.path.join('out_dir','meg-epo.fif'))
+
 
 
 
