@@ -44,7 +44,7 @@ epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=False)
 
 # == FIGURES ==
 plt.figure(1)
-epochs.plot_image(picks=['meg', 'eeg'])
+epochs.plot_image(picks=['meg'])
 plt.savefig(os.path.join('out_figs','epochs_image.png'))
 
 plt.figure(2)
