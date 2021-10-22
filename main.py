@@ -39,10 +39,10 @@ duration = config['duration']
 
 # == EPOCH DATA ==
 #Make epohs of equal length
-epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=False)
+epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=True)
 
 # == SAVE FILE ==
-epochs.save(os.path.join('out_dir','meg-epo.fif'),overwrite=True)
+epochs.save(os.path.join('out_dir','meg-epo.fif'))
 
 
 # == FIGURES ==
