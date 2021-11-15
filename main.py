@@ -48,9 +48,9 @@ epochs.save(os.path.join('out_dir','meg-epo.fif'))
 # == FIGURES ==
 plt.figure(1)
 fig_ep = epochs.plot_image()
-for i in range(1,len(fig_ep)):
-    plt.figure(1)
-    plt.savefig(os.path.join('out_figs','epochs_image.png'))
+#for i in range(1,len(fig_ep)):
+#    plt.figure(1)
+plt.savefig(os.path.join('out_figs','epochs_image.png'))
 
 plt.figure(2)
 epochs.plot_drop_log()
