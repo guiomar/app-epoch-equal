@@ -1,15 +1,11 @@
-# Copyright (c) 2020 brainlife.io
+# Copyright (c) 2021 brainlife.io
 #
 # This file is a MNE python-based brainlife.io App
 #
 # Author: Guiomar Niso
 # Indiana University
 
-# Required libraries
-# pip install mne-bids coloredlogs tqdm pandas scikit-learn json_tricks fire
-
 # set up environment
-#import mne-study-template
 import os
 import json
 import mne
@@ -38,7 +34,7 @@ raw = mne.io.read_raw_fif(fname)
 duration = config['duration']
 
 # == EPOCH DATA ==
-#Make epohs of equal length
+# Make epohs of equal length
 epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=True)
 
 # == SAVE FILE ==
