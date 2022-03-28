@@ -12,6 +12,7 @@ import mne
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.image
 
 # Current path
 __location__ = os.path.realpath(
@@ -46,7 +47,14 @@ plt.figure(1)
 fig_ep = epochs.plot_image()
 #for i in range(1,len(fig_ep)):
 #    plt.figure(1)
-plt.savefig(os.path.join('out_figs','epochs_image.png'))
+fig_ep[0].savefig(os.path.join('out_figs','epochs_image0.png'))
+fig_ep[1].savefig(os.path.join('out_figs','epochs_image1.png'))
+
+img0 = matplotlib.image.imread(os.path.join('out_figs','epochs_image0.png'))
+img1 = matplotlib.image.imread(os.path.join('out_figs','epochs_image1.png'))
+new_image = np.hstack((img0, img1))
+matplotlib.image.imsave('epochs_image.png', new_image)
+
 
 plt.figure(2)
 epochs.plot_drop_log()
