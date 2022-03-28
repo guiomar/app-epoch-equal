@@ -53,7 +53,7 @@ fig_ep[1].savefig(os.path.join('out_figs','epochs_image1.png'))
 img0 = matplotlib.image.imread(os.path.join('out_figs','epochs_image0.png'))
 img1 = matplotlib.image.imread(os.path.join('out_figs','epochs_image1.png'))
 new_image = np.hstack((img0, img1))
-matplotlib.image.imsave('epochs_image.png', new_image)
+matplotlib.image.imsave(os.path.join('out_figs','epochs_image.png'), new_image)
 
 
 plt.figure(2)
