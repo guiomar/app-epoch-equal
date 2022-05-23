@@ -24,8 +24,8 @@ with open(__location__+'/config.json') as config_json:
 
 # == LOAD DATA ==
 # FIF
-fname = config['fif']
-raw = mne.io.read_raw_fif(fname)
+fname = config['mne']
+raw = mne.io.read_raw(fname)
 
 # CTF
 # fname = config['ctf']
