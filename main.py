@@ -23,13 +23,8 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 # == LOAD DATA ==
-# FIF
 fname = config['mne']
 raw = mne.io.read_raw(fname)
-
-# CTF
-# fname = config['ctf']
-# raw = mne.io.read_raw_ctf(fname)
 
 # == GET CONFIG VALUES ==
 duration = config['duration']
@@ -45,15 +40,19 @@ epochs.save(os.path.join('out_dir','meg-epo.fif'))
 # == FIGURES ==
 plt.figure(1)
 fig_ep = epochs.plot_image()
-#for i in range(1,len(fig_ep)):
-#    plt.figure(1)
-fig_ep[0].savefig(os.path.join('out_figs','epochs_image0.png'))
-fig_ep[1].savefig(os.path.join('out_figs','epochs_image1.png'))
+num_figures = len(fig_ep)
 
-img0 = matplotlib.image.imread(os.path.join('out_figs','epochs_image0.png'))
-img1 = matplotlib.image.imread(os.path.join('out_figs','epochs_image1.png'))
-new_image = np.hstack((img0, img1))
-matplotlib.image.imsave(os.path.join('out_figs','epochs_image.png'), new_image)
+if num_figures==1:
+    fig_ep[0].savefig(os.path.join('out_figs','epochs_image.png'))
+
+elif num_figures==2:
+    fig_ep[0].savefig(os.path.join('out_figs','epochs_image0.png'))
+    fig_ep[1].savefig(os.path.join('out_figs','epochs_image1.png'))
+
+    img0 = matplotlib.image.imread(os.path.join('out_figs','epochs_image0.png'))
+    img1 = matplotlib.image.imread(os.path.join('out_figs','epochs_image1.png'))
+    new_image = np.hstack((img0, img1))
+    matplotlib.image.imsave(os.path.join('out_figs','epochs_image.png'), new_image)
 
 
 plt.figure(2)
