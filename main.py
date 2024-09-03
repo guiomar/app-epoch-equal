@@ -34,7 +34,7 @@ duration = config['duration']
 epochs = mne.make_fixed_length_epochs(raw, duration=duration, preload=True)
 
 # == SAVE FILE ==
-epochs.save(os.path.join('out_dir','meg-epo.fif'))
+epochs.save(os.path.join('out_dir','epo.fif'))
 
 '''
 # == FIGURES ==
